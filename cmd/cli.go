@@ -9,10 +9,10 @@ import (
 	"time"
 
 	"github.com/alexflint/go-arg"
+	"github.com/fabl3ss/goparrot-twap/swap"
 	"github.com/gagliardetto/solana-go/rpc"
 	"github.com/go-co-op/gocron"
-	twapConfig "github.com/gopartyparrot/goparrot-twap/config"
-	"github.com/gopartyparrot/goparrot-twap/swap"
+	twapConfig "github.com/fabl3ss/goparrot-twap/config"
 	"github.com/joho/godotenv"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"

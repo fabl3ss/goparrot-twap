@@ -3,13 +3,13 @@ package swap
 import (
 	"context"
 
+	"github.com/fabl3ss/goparrot-twap/config"
 	bin "github.com/gagliardetto/binary"
 	"github.com/gagliardetto/solana-go"
 	"github.com/gagliardetto/solana-go/programs/token"
 	"github.com/gagliardetto/solana-go/rpc"
 	confirm "github.com/gagliardetto/solana-go/rpc/sendAndConfirmTransaction"
 	"github.com/gagliardetto/solana-go/rpc/ws"
-	"github.com/gopartyparrot/goparrot-twap/config"
 )
 
 type TokenAccountInfo struct {
@@ -143,11 +143,14 @@ func ExecuteInstructions(
 		return nil, err
 	}
 
+	var MaxRetries uint = 5
 	sig, err := clientRPC.SendTransactionWithOpts(
 		ctx,
 		tx,
-		false,
-		rpc.CommitmentFinalized,
+		rpc.TransactionOpts{ // Use proper options for your case.
+			SkipPreflight: true,
+			MaxRetries:    &MaxRetries,
+		},
 	)
 	if err != nil {
 		return nil, err

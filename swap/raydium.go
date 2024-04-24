@@ -7,12 +7,12 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/fabl3ss/goparrot-twap/config"
 	bin "github.com/gagliardetto/binary"
 	"github.com/gagliardetto/solana-go"
 	"github.com/gagliardetto/solana-go/programs/system"
 	"github.com/gagliardetto/solana-go/programs/token"
 	"github.com/gagliardetto/solana-go/rpc"
-	"github.com/gopartyparrot/goparrot-twap/config"
 )
 
 type RaydiumSwap struct {
